@@ -24,14 +24,14 @@ nav{
     display: flex;
     font-size: 40px;
     font-weight: 800;
-    color: #3d535f;
+    color: #154f6e;
     letter-spacing: 3px;
     cursor: pointer;
     text-transform: uppercase;
 }
 b{
     font-size: 70px;
-    color: #7f00ff;
+    color: #8a0aad;
 }
 .navItems{
     display: flex;
@@ -43,13 +43,14 @@ b{
 .navItems li a{
     font-size: 25px;
     color: #3d535f;
+    color: #226082;
     letter-spacing: 3px;
     text-decoration: none;
     text-transform: capitalize;
 }
 .navItems li:hover a,
 .links a:hover{
-    color: #7f00ff;
+    color:#b618e1;
 }
 .links{
     font-size: 30px;
@@ -74,7 +75,7 @@ b{
     border-radius: 50%;
     left: -12%;
     top: 40%;
-    background: linear-gradient(45deg,#7f00ff, pink);
+    background: linear-gradient(45deg,#a16ca0, pink);
     animation: object1 6s linear infinite;
 }
 .wrapper::after{
@@ -85,7 +86,7 @@ b{
     border-radius: 50%;
     left: 30%;
     top: -12%;
-    background: linear-gradient(45deg,#7f00ff, pink);
+    background: linear-gradient(45deg,#a16ca0, pink);
     animation: object2 6s linear infinite;
 }
 @keyframes object1{
@@ -112,7 +113,7 @@ b{
     position: relative;
     font-size: 35px;
     letter-spacing: 5px;
-    color: #3d535f;
+    color: #19638a;
 }
 .topline::after{
     position: absolute;
@@ -120,23 +121,23 @@ b{
     height: 4px;
     width: 45px;
     bottom: 4px;
-    background-color: #7f00ff;
+    background-color: #b618e1;
 }
 h1{
     display: block;
     font-size: 6em;
     font-weight: 800;
-    color: #3d535f;
+    color: #154f6e;
 }
 .multiText{
-    color: #7f00ff;
+    color: #c622ad;
     text-transform:inherit;
 }
 p{
     display: block;
     width: 90%;
     font-size: 1.2em;
-    color: #3d535f;
+    color: #154f6e;
 }
 .imgbox{
     position: relative;

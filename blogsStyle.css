@@ -1,0 +1,168 @@
+/*FROM STYLE.CSS*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Open Sans', sans-serif;
+    width: 90%;
+    margin: auto;
+}
+.active{
+    background:rgba(163, 162, 162, 0.62) ;
+    padding: 4px 12px;
+    border-radius: 20px;
+}
+.container{
+    width: 100%;
+    min-height: 100vh;
+    background-color: #f3f5f8;
+}
+nav{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    height: 80px;
+    line-height: 80px;
+    z-index: 111;
+}
+.logo{
+    display: flex;
+    font-size: 40px;
+    font-weight: 800;
+    color: #154f6e;
+    letter-spacing: 3px;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+b{
+    font-size: 70px;
+    color: palevioletred;
+}
+.navItems{
+    display: flex;
+}
+.navItems li{
+    list-style: none;
+    margin: 0 15px;
+}
+.navItems li a{
+    font-size: 25px;
+    color: #226082;
+    letter-spacing: 3px;
+    text-decoration: none;
+    text-transform: capitalize;
+}
+.navItems li:hover a,
+.links a:hover{
+    color:#b618e1;
+}
+.links{
+    font-size: 30px;
+    color: #3d535f;
+    margin: 20px 10px;
+}
+.topline{
+    display: block;
+    position: relative;
+    font-size: 35px;
+    letter-spacing: 5px;
+    color: #19638a;
+}
+.topline::after{
+    position: absolute;
+    content: '';
+    height: 4px;
+    width: 45px;
+    bottom: 4px;
+    background-color: #b618e1;
+}
+
+/*NOT FROM STYLE*/
+.hr1{
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid black;
+    padding: 0;
+}
+h1{
+    font-size: 130px;
+    font-weight: 250;
+    text-align: center;
+    margin: 0;
+}
+.intro{
+    font-size: 15px;
+    text-align: center;
+    letter-spacing: 3px;
+    margin-top: 0;
+    text-transform: uppercase;
+    font-style: italic;
+    background-color:  #b618e1;
+    color: white;
+    width: 85%;
+    margin: auto; 
+}
+span{
+    color:  #b618e1;
+    font-family: 'Roboto Slab', serif;
+    font-weight: 900;
+}
+.author{
+    float: left;
+    font-weight: 500;
+    margin-top: 15px;
+    font-size: 20px;
+}
+.date{
+    float: right;
+    font-weight: 500;
+    margin-top: 15px;
+    font-size: 20px;
+}
+.hr2{
+    margin-top: 60px;
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid black;
+    padding: 0;
+}
+.container-1{
+    display: grid;
+    grid-gap: 30px;
+    grid-template-areas: 
+    'p-1 break image-1'
+    'p-1 break image-1'
+    'p-1 break image-1'
+    'p-1 break image-1'
+    'p-1 break image-1'
+    'p-1 break image-1'
+    'p-1 break image-1'
+    'p-1 break image-1'
+    'p-1 break image-1';
+}
+.break{
+    grid-area: break;
+    border-color: black;
+    height: 1000px;
+}
+.p-1 h4{ 
+    text-transform: uppercase;
+    font-size: 20px;
+}
+.conclusion{
+    padding-top: 30px;
+    text-transform: uppercase;
+    font-size: 20px;
+}
+.space{
+    padding-top: 7px;
+}
+.mid{
+    color: black;
+    font-size: 20px;
+}
+

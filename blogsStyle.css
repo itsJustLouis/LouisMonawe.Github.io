@@ -40,6 +40,16 @@ b{
     font-size: 70px;
     color: palevioletred;
 }
+.nav{
+    position: sticky;
+    top: 0;
+}
+.nav.sticking{
+    background: rgba(182, 182, 180, 0.6); 
+    backdrop-filter: blur(4px);
+    height: 80px;
+    width: 100%;
+}
 .navItems{
     display: flex;
 }
@@ -79,6 +89,7 @@ b{
     background-color: #b618e1;
 }
 
+
 /*NOT FROM STYLE*/
 .hr1{
     display: block;
@@ -88,7 +99,7 @@ b{
     padding: 0;
 }
 h1{
-    font-size: 130px;
+    font-size: 100px;
     font-weight: 250;
     text-align: center;
     margin: 0;
@@ -132,7 +143,7 @@ span{
 }
 .container-1{
     display: grid;
-    grid-gap: 30px;
+    grid-gap: 25px;
     grid-template-areas: 
     'p-1 break image-1'
     'p-1 break image-1'
@@ -144,10 +155,13 @@ span{
     'p-1 break image-1'
     'p-1 break image-1';
 }
+.container-2{
+    margin-bottom: 10%;
+}
 .break{
     grid-area: break;
     border-color: black;
-    height: 1000px;
+    height: 1120px;
 }
 .p-1 h4{ 
     text-transform: uppercase;
@@ -165,4 +179,126 @@ span{
     color: black;
     font-size: 20px;
 }
+
+
+/*Media Query*/
+@media (max-width: 1280px){
+    h1{
+        font-size: 80px;
+        font-weight: 200;
+    }
+}
+@media (max-width: 1150px){
+    h1{
+        font-size: 60px;
+        font-weight: 100;
+    }
+    .break{
+        height: 1320px;
+    }
+    .logo{
+        display: flex;
+        font-size: 30px;
+        font-weight: 650;
+    }
+    .navItems li a{
+        font-size: 18px;
+        letter-spacing: 2px;
+    }
+    .links{
+        font-size: 21px;
+        color: #3d535f;
+        margin: 20px 10px;
+    }
+    
+}
+@media (max-width: 1000px){
+    .break{
+        height: 1700px;
+    }
+}
+@media (max-width: 900px){
+    .container-1 {
+        display:block;
+    }
+    .break {
+        display: none;
+    }
+    .space{
+        padding-bottom: 10px;
+    }    
+}
+
+@media (max-width: 780px){
+    .p-1 h4{
+        font-size: 18px;
+        font-weight: 15px;
+    }
+    h1{
+        font-size: 45px;
+        font-weight: 70;
+    }
+    .author{
+        font-weight: 300;
+        margin-top: 15px;
+        font-size: 15px;
+    }
+    .date{
+        font-weight: 300;
+        margin-top: 15px;
+        font-size: 15px;
+    }
+    .mid{
+        color: black;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 650px){
+    .logo{
+        display: none
+    }
+    .navItems li a{
+        font-size: 15px;
+        letter-spacing: 0.2px;
+    }
+    .links{
+        display: none;
+    }
+    .p-1 h4{
+        font-size: 15px;
+        font-weight: 15px;
+    }
+    h1{
+        font-size: 25px;
+        font-weight: 70;
+    }
+    .intro{
+        font-size: 10px;
+        text-align: center;
+        letter-spacing: 1.5px;
+        margin-top: 0;
+        text-transform: uppercase;
+        font-style: italic;
+        background-color:  #b618e1;
+        color: white;
+        width: 80%;
+        margin: auto; 
+    }
+    .author{
+        font-weight: 250;
+        margin-top: 15px;
+        font-size: 10px;
+    }
+    .date{
+        font-weight: 250;
+        margin-top: 15px;
+        font-size: 10px;
+    }
+    .mid{
+        color: black;
+        font-size: 14px;
+    }
+}
+
 

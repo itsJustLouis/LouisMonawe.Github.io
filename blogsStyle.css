@@ -145,15 +145,15 @@ span{
     display: grid;
     grid-gap: 25px;
     grid-template-areas: 
-    'p-1 break image-1'
-    'p-1 break image-1'
-    'p-1 break image-1'
-    'p-1 break image-1'
-    'p-1 break image-1'
-    'p-1 break image-1'
-    'p-1 break image-1'
-    'p-1 break image-1'
-    'p-1 break image-1';
+    'p-1 break'
+    'p-1 break'
+    'p-1 break'
+    'p-1 break'
+    'p-1 break'
+    'p-1 break'
+    'p-1 break'
+    'p-1 break'
+    'p-1 break';
 }
 .container-2{
     margin-bottom: 10%;

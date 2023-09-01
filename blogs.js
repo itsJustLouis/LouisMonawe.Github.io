@@ -1,8 +1,7 @@
 //for the navigation
 const nav = document.querySelector('.nav')
 const scrollWatcher = document.createElement('div');
-
-
+svg
 scrollWatcher.setAttribute('data-scroll-watcher', '');
 nav.before(scrollWatcher);
 

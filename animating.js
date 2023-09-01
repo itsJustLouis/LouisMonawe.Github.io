@@ -5,3 +5,5 @@ var typingEffect = new Typed(".multiText",{
     backSpeed : 80,
     backDelay : 1500
 })
+
+

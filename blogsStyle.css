@@ -19,6 +19,7 @@ body{
     min-height: 100vh;
     background-color: #f3f5f8;
 }
+
 /*For Visuals Page*/
 .visuals{
     width: 90%;
@@ -249,7 +250,7 @@ span{
 }
 .container-1{
     display: grid;
-    grid-gap: 25px;
+    grid-gap: 30px;
     grid-template-areas: 
     'p-1 break'
     'p-1 break'
@@ -260,9 +261,12 @@ span{
     'p-1 break'
     'p-1 break'
     'p-1 break';
+        line-height: 30px;
+    
 }
 .container-2{
-    margin-bottom: 10%;
+    margin-bottom: 5%;
+    margin-top: 1%;
 }
 .break{
     grid-area: break;
@@ -280,6 +284,7 @@ span{
 }
 .space{
     padding-top: 7px;
+    font-size: 18px;
 }
 .mid{
     color: black;
@@ -361,9 +366,7 @@ span{
 }
 
 @media (max-width: 689px){
-    .logo{
-        display: none
-    }
+    
     .navItems li a{
         font-size: 15px;
         letter-spacing: 0.2px;
@@ -646,4 +649,152 @@ span{
         width: 100%;
         height: 85%;
     }
+}
+
+
+/*Scrolling Effects*/
+
+#back-to-top-btn{
+    display: none;
+  
+  justify-content: center;
+  align-items: center;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    font-size: 20px;
+    width:40px;
+    height: 40px;
+    background-color: #fff;
+    color: #333;
+    cursor: pointer;
+    outline: none;
+    border: 3px solid #333;
+    border-radius: 50%;
+    transition-duration: 0.2s;
+    transition-timing-function: ease-in-out;
+    transition-property: background-color, color;
+}
+#back-to-top-btn:hover, #back-to-top-btn:focus{
+    background-color: #333;
+    color: #fff;
+}
+
+/*Animations--*/
+.btnEntrance {
+    animation-duration: 0.5s;
+    animation-fill-mode: both;
+    animation-name: btnEntrance;
+}
+/*Zoom In*/
+@keyframes btnEntrance {
+ from{
+    opacity: 0;
+    transform: translate3d(0, 100%, 0);
+ }
+ to {
+    opacity: 1;
+    transform: translate3d(0,0,0);
+ }
+}
+
+.btnExit {
+    animation-duration: 0.25s;
+    animation-fill-mode: both;
+    animation-name: btnExit;
+}
+
+/*Zoom Out*/
+@keyframes btnExit {
+    from{
+        opacity: 1;
+    }
+    to{
+        opacity: 0;
+        transform: translate3d(0, 100%, 0);
+    }
+}
+
+
+
+
+.toggle-button{
+    position: absolute;
+    top: 1.85rem;
+    right: 7.85rem;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+}
+.toggle-button .bar{
+    height: 3px;
+    width: 100%;
+    background-color: #000;
+    border-radius: 10px;
+}
+
+@media(max-width: 848px){
+    .toggle-button{
+        display: flex;
+    }
+    .navItems{
+        display: none;
+        width: 100%;
+    }
+    .links{
+        display: none;
+        width: 100%;
+        letter-spacing: 1rem;
+    }
+    .nav{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .nav ul{
+        width: 100%;
+        flex-direction: column;
+        height: 1rem;
+        margin-top: -23rem;
+    }
+    .navItems li{
+      text-align: center;
+      line-height: 2.1rem;
+    }
+    .navItems li a{
+        padding: .5rem 1rem;
+    }
+    .logo{
+        margin-top: -2rem;
+    }
+    .nav.activated{
+        margin-top: -68px;
+        background-color: rgba(9, 12, 24, 0.834);
+        height: 15rem;
+    }
+    .navItems.activated {
+        display: flex;
+    }
+}
+@media(max-width: 690px){
+    .navItems li{
+        line-height: 1.5rem;
+    }
+    .navItems li a{
+        font-size: 10px;
+    }
+    .logo{
+        font-size: 15px;
+    }
+    .toggle-button{
+        
+        top: 3rem;
+        right: 4rem;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 20px;
+        height: 15px;
+    }
+   
 }

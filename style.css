@@ -58,8 +58,10 @@ b{
 }
 .links{
     font-size: 30px;
-    color: #000;
     margin: 20px 10px;
+}
+header .links{
+    background-color: #a16ca0;
 }
 
 .wrapper{

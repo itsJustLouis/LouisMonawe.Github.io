@@ -22,8 +22,9 @@ body{
 }
 
 /*For Visuals Page*/
+
 .visuals{
-    width: 90%;
+    width: 75%;
     background: #fff;
     color: #000;
     
@@ -36,6 +37,9 @@ body{
 .visuals #canvas{
     width: 100%;
 }
+.visuals #lineGraphCanvas{
+    width: 100%;
+}
 #svg{
     width: 100%;
     height: 50px;
@@ -43,7 +47,6 @@ body{
 .footer{
     background-color: rgba(21, 32, 35, 0.822);
     padding: 50px 0;
-    margin-top: 20%;
 }
 .row{
     display: flex;
@@ -124,7 +127,30 @@ body{
         width: 100%;
     }
 }
-
+@media(max-width: 650px){
+    .visuals{
+        width: 80%;
+    }
+    .visuals h1{
+        font-size: 20px;
+    }
+}
+@media(max-width: 550px){
+    .visuals{
+        width: 90%;
+    }
+    .visuals h1{
+        font-size: 15px;
+    }
+}
+@media(max-width: 450px){
+    .visuals{
+        width: 100%;
+    }
+    .visuals h1{
+        font-size: 13px;
+    }
+}
 
 
 
@@ -444,151 +470,158 @@ span{
     background-color: #f3f5f8;
 }
 .imgs h1{
-    font-weight: 800;
-    letter-spacing: 5px;
-    font-size: 120px;
+    font-weight: 650;
+    letter-spacing: 3px;
+    font-size: 100px;
     color:  #431350;
 }
 .img1{
-    width: 90%;
-    height: 90%;
+    width: 70%;
+    height: 70%;
     float: left;
     position: relative;
 }
 .img3{
-    width: 100%;
-    height: 100%;
+    width: 80%;
+    height: 80%;
     float: left;
     position: relative;
-    left: 10%;
+    left: 0%;
     
 }
 .img2{
-    width: 90%;
-    height: 600px;
+    width: 70%;
+    height: 450px;
     position: relative;
     float: left;
-    left: 20%;
+    left: 0;
 }
 .img{
     align-items: center;
     float: left;
-    width: 30%;
-    height: 30%;
-}
-.cap{
-    margin-left: 30%;
+    width: 20%;
+    height: 20%;
 }
 
+
 .imgs-2{
-    margin-top: 40%;
+    margin-top: 32%;
 }
 .img-1{
     align-items: center;
     float: left;
-    width: 30%;
-    height: 30%;
+    width: 25%;
+    height: 25%;
 }
 .img4{
-    width: 85%;
-    height: 600px;
+    width: 75%;
+    height: 450px;
     float: left;
     position: relative;
 }
 .img5{
-    width: 90%;
-    height: 90%;
+    width: 75%;
+    height: 75%;
     float: left;
     position: relative;
-    left: 10%;
+    left: 0%;
     
 }
 .img6{
-    width: 90%;
-    height: 90%;
+    width: 75%;
+    height: 75%;
     position: relative;
     float: left;
-    left: 20%;
+    left: 10%;
+}
+.img7{
+    width:90%;
+    height: 90%;
+    left: 5%;
 }
 @media (max-width: 1380px){
     .img4{
-        width: 85%;
-        height: 400px;
+        width: 70%;
+        height: 320px;
         float: left;
         position: relative;
     }
+    .img7{
+        width:70%;
+        height: 70%;
+    }
     .img2{
-        width: 85%;
-        height: 400px;
+        width: 70%;
+        height: 320px;
         position: relative;
         float: left;
         left: 20%;
     }
     .imgs h1{
-        font-weight: 800;
-        letter-spacing: 5px;
-        font-size: 90px;
+        font-weight: 600;
+        letter-spacing: 2px;
+        font-size: 80px;
         color:  #431350;
     }
 }
 @media (max-width: 1150px){
     .img4{
-        width: 85%;
-        height: 300px;
+        width: 65%;
+        height: 200px;
         float: left;
         position: relative;
     }
     .img2{
-        width: 85%;
-        height: 300px;
+        width: 65%;
+        height: 200px;
         position: relative;
         float: left;
         left: 20%;
     }
     .imgs h1{
-        font-weight: 800;
-        letter-spacing: 5px;
-        font-size: 90px;
+        font-weight: 600;
+        letter-spacing: 2px;
+        font-size: 75px;
         color:  #431350;
     }
 }
 @media (max-width: 980px){
     .img4{
-        width: 85%;
-        height: 300px;
+        width: 65%;
+        height: 200px;
         float: left;
         position: relative;
     }
     .img2{
-        width: 85%;
-        height: 300px;
+        width: 65%;
+        height: 200px;
         position: relative;
         float: left;
         left: 20%;
     }
     .imgs h1{
-        font-weight: 800;
-        letter-spacing: 5px;
-        font-size: 60px;
+        font-weight: 600;
+        letter-spacing: 3px;
+        font-size: 50px;
         color:  #431350;
     }
 }
 @media (max-width: 750px){
     .img4{
-        width: 85%;
-        height: 200px;
+        width: 65%;
+        height: 150px;
         float: left;
         position: relative;
     }
     .img2{
-        width: 85%;
-        height: 200px;
+        width: 65%;
+        height: 150px;
         position: relative;
         float: left;
         left: 20%;
     }
     .imgs h1{
-        font-weight: 700;
+        font-weight: 500;
         letter-spacing: 3px;
         font-size: 45px;
         color:  #431350;
@@ -596,32 +629,30 @@ span{
 }
 @media (max-width: 650px){
     .img4{
-        width: 85%;
-        height: 200px;
+        width: 65%;
+        height: 150px;
         float: none;
         position: relative;
     }
     .img2{
-        width: 85%;
-        height: 200px;
+        width: 65%;
+        height: 150px;
         position: relative;
         float: none;
         left: 20%;
     }
     .imgs h1{
-        font-weight: 700;
+        font-weight: 600;
         letter-spacing: 3px;
         font-size: 45px;
         color:  #431350;
     }
-    h2.cap{
-        font-size: 10px;
-    }
+
 }
 
 @media (max-width: 600px){
     .imgs h1{
-        font-weight: 700;
+        font-weight: 600;
         letter-spacing: 1px;
         font-size: 35px;
         color:  #431350;
@@ -634,7 +665,7 @@ span{
     }
     
     .imgs-2 {
-        margin-top: 5px;
+        margin-top: 2.5px;
         display: flex;
         flex-direction: column; /* Display items vertically */
         align-items: center; /* Center items horizontally */
@@ -642,37 +673,37 @@ span{
     }
     .img1{
         align-items: center;
-        width: 100%;
-        height: 65%;
+        width: 80%;
+        height: 55%;
     }
     .img2{
         align-items: center;
         left: 0%;
-        width: 100%;
-        height: 65%;
+        width: 80%;
+        height: 55%;
     }
     .img3{
         align-items: center;
         left: 0%;
-        width: 100%;
-        height: 85%;
+        width: 80%;
+        height: 65%;
     }
     .img4{
         align-items: center;
-        width: 100%;
-        height: 65%;
+        width: 80%;
+        height: 45%;
     }
     .img5{
         align-items: center;
         left: 0%;
-        width: 100%;
-        height: 65%;
+        width: 80%;
+        height: 45%;
     }
     .img6{
         align-items: center;
         left: 0%;
-        width: 100%;
-        height: 85%;
+        width: 60%;
+        height: 65%;
     }
 }
 
@@ -833,9 +864,9 @@ span{
 .style-guide{
     height: 60px;
     width: 100%;
-    padding-top: 38%;
+    padding-top: 28%;
     display: block;
-    margin-top: 20%;
+    margin-top: 2%;
     line-height: 35px;
 }
 .style-text{

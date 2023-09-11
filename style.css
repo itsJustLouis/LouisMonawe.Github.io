@@ -157,12 +157,15 @@ p{
     top: -100px;
     right: -80px;
     transform: rotateY(180deg);
-    transform: rotateZ(45deg);
-    animation: animateUser 4s linear infinite;
+    transform: rotateZ(30deg);
+    animation: animateUser 16s linear infinite;
 }
 @keyframes animateUser{
-    50%{
-        transform: rotateZ(30deg);
+    0%, 100% {
+        transform: scale(1) rotate(-15deg);
+    }
+    50% {
+        transform: scale(1.2) rotate(30deg);
     }
 }
 

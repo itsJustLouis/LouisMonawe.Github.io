@@ -4,7 +4,7 @@
     async function getNasaAsteroids(){
       const response = await fetch(asteroids_api_url);
       const data = await response.json(); //convert response to json
-      console.log(data.near_earth_objects);
+    //  console.log(data.near_earth_objects);
 
       // Loop through each date and its array of asteroids
     for (const date in data.near_earth_objects) {      
@@ -63,7 +63,7 @@
               text: 'Dates', // Label for the x-axis
             },
             ticks: {
-              fontSize: 25, // Increase the font size of the x-axis labels
+              fontSize: 14, // Increase the font size of the x-axis labels
             },
           },
           y: {
@@ -72,7 +72,7 @@
               text: 'Number of Asteroids', // Label for the y-axis
             },
             ticks: {
-              fontSize: 25, // Increase the font size of the y-axis labels
+              fontSize: 14, // Increase the font size of the y-axis labels
             },
             beginAtZero: true,
             },
@@ -81,9 +81,6 @@
     });
  
 }
-
-
-
 
 
 async function getAsteroids() {

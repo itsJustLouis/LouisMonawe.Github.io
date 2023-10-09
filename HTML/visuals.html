@@ -60,17 +60,50 @@
 
     <main class="visuals"> 
 
-        <h2>Bar Graph</h2>
+        <h2 class="t1">Bar Graph</h2>
         <svg id="svg"></svg>
         <div id="canvas" alt="here lies a bar graph">
-        </div>
-        
+        </div><svg id="svg">
+            <section class="summar">
+            <h4 class="hea">Purpose of Bar Graph:</h4>
+                <ul class="liss"><li>The bar graph displays the number of asteroids approaching Earth on specific dates within a given time range. It provides a visual representation of how the asteroid count varies across different dates.</li></ul>
+                
+                <h4 class="hea">Interactive features</h4>
+                <ul class="liss"><li>Tooltip: When hovering over a bar, a tooltip displays the date and the count of asteroids for that specific date. The tooltip is positioned just below the graph title for visibility.</li>
+                    <li>When hovering over a certain bar, the bar changes colour enhancing visibility and the tooltip appears.</li>
+                    <li>Responsive Design: The graph is responsive and adjusts to different screen sizes.</li></ul>
+                    
+                <h4 class="hea">Style Guide</h4>
+                    <ul class="liss"><li>Color: Each bar is colored with a unique shade for better differentiation, and when you hover over any bar, it changes colour to a darkish purple, enhancing visibility and differentiation.</li>
+                        <li>Title: The graph title, "Number of Asteroids Approaching Earth on Specific Dates," is displayed at the top for context.</li>
+                        <li>Axes: The x-axis represents the dates, and the y-axis represents the number of asteroids, and they are clearly labelled to enhance understanding.</li>
+                        <li>Font Size: Font size for axis labels and tooltips is set to 12px for readability.</li>
+                    </ul>
+                </section>
+            </svg>
+
+
+        <h2 class="t2">Line Graph: Number of Asteroids Approaching Earth on Specific Dates</h2>
         <svg id="svg"></svg>
-        <h2>Line Graph</h2>
-        <svg id="svg"></svg>
-        <canvas id="lineGraphCanvas" alt="here lies a line graph">
-        </canvas>
-        <svg id="svg"></svg>
+        <div id="lineGraphCanvas" alt="here lies a line graph"></div>
+        <svg id="svg">
+            <section class="summar">
+            <h4 class="hea">Purpose of Line Graph:</h4>
+            <ul class="liss"><li>The line graph visually represents the number of asteroids and potentially dangerous asteroids approaching Earth on specific dates. It allows users to compare the number of times Asteroids have approached earth on a certain day and how many times they were actually dangerous as compared to how many approached earth.</li></ul>
+            
+            <h4 class="hea">Interactive features</h4>
+            <ul class="liss"><li>Two legends are provided at the top of the graph, one for "Asteroids" and the other for "Potentially Hazardous." Users can click on these legends to deactivate or reactivate the corresponding lines.</li>
+                <li>When hovering over a point in a line, a tooltip displays the line name (Asteroids or Potentially Hazardous) along with the count for that specific date.</li>
+                <li>The graph is responsive and adjusts to different screen sizes.</li></ul>
+
+            <h4 class="hea">Style Guide</h4>
+
+                <ul class="liss"><li>Color: Asteroids are represented by a blue-green color, while potentially hazardous asteroids are represented by a pink color.</li>
+                    <li>Legends: Legends include colored rectangles that match the line colors for easy identification.</li>
+                    <li>Font Size: Font size for legends is set to 12px, and for tooltips is set to 10px ensuring readability.</li>
+                </ul>  
+            </section>          
+        </svg>
 
     </main>
 
@@ -110,7 +143,7 @@
         </footer>
     
            <!-- <button id="back-to-top-btn"><img src="back.png" alt="back to top Icon"></button>-->
-    <button id="back-to-top-btn"><img src="/Images/back.png" alt="back to top Icon"></button>
+           <button id="back-to-top-btn"><img src="../Images/back.png" alt="back to top Icon"></button>
     <script src="../JS/scroll.js"></script>
     <script src="../JS/script.js"></script>
 </body>

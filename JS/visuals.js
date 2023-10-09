@@ -126,7 +126,28 @@
  getNasaAsteroids();
 
 
-async function getAsteroids() {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ async function getAsteroids() {
   try {
     const response = await fetch(asteroids_api_url);
     const data = await response.json();
@@ -157,54 +178,192 @@ async function displayLineChart() {
   const asteroidData = await getAsteroids();
 
   if (asteroidData) {
-    const ctx = document.getElementById('lineGraphCanvas');
-    new Chart(ctx, {
-      type: 'line',
-      data: {
-        labels: asteroidData.map(item => item.date),
-        datasets: [
-          {
-            label: 'Number of Asteroids',
-            data: asteroidData.map(item => item.asteroidCount),
-            backgroundColor: 'rgba(75, 192, 192, 0.2)',
-            borderColor: 'rgba(75, 192, 192, 1)',
-            borderWidth: 1,
-            fill: false
-          },
-          {
-            label: 'Potentially Hazardous Asteroids',
-            data: asteroidData.map(item => item.potentiallyHazardousCount),
-            backgroundColor: 'rgba(255, 99, 132, 0.2)',
-            borderColor: 'rgba(255, 99, 132, 1)',
-            borderWidth: 1,
-            fill: false
-          }
-        ]
-      },
-      options: {
-        plugins: {
-          title: {
-            display: true,
-            text: 'Line Chart: Number of Asteroids vs Number of Potentially Hazardous Asteroids',
-          },
-        },
-        scales: {
-          x: {
-            title: {
-              display: true,
-              text: 'Dates',
-            },
-          },
-          y: {
-            title: {
-              display: true,
-              text: 'Number of Asteroids',
-            },
-          },
-        },
-      },
+    const margin = { top: 30, right: 30, bottom: 50, left: 60 };
+    const width = 800 - margin.left - margin.right;
+    const height = 400 - margin.top - margin.bottom;
+
+    const svg = d3.select("#lineGraphCanvas")
+      .append("svg")
+      .attr("preserveAspectRatio", "xMinYMin meet")
+      .attr("viewBox", `0 0 ${width + margin.left + margin.right} ${height + margin.top + margin.bottom}`)
+      .classed("svg-content-responsive", true);
+
+    const g = svg.append("g")
+      .attr("transform", `translate(${margin.left},${margin.top})`);
+
+    const x = d3.scalePoint()
+      .range([0, width])
+      .domain(asteroidData.map(item => item.date))
+      .padding(0.5);
+
+    const y = d3.scaleLinear()
+      .range([height, 0])
+      .domain([0, d3.max(asteroidData, d => Math.max(d.asteroidCount, d.potentiallyHazardousCount))]);
+
+    const lineAsteroids = d3.line()
+      .x(d => x(d.date))
+      .y(d => y(d.asteroidCount));
+
+    const linePotentiallyHazardous = d3.line()
+      .x(d => x(d.date))
+      .y(d => y(d.potentiallyHazardousCount));
+
+    const lineAsteroidsPath = g.append("path")
+      .datum(asteroidData)
+      .attr("fill", "none")
+      .attr("stroke", "rgba(75, 192, 192, 1)")
+      .attr("stroke-width", 1.5)
+      .attr("d", lineAsteroids)
+      .attr("class", "lineAsteroids")
+      .attr("active", true);
+
+    const linePotentiallyHazardousPath = g.append("path")
+      .datum(asteroidData)
+      .attr("fill", "none")
+      .attr("stroke", "rgba(255, 99, 132, 1)")
+      .attr("stroke-width", 1.5)
+      .attr("d", linePotentiallyHazardous)
+      .attr("class", "linePotentiallyHazardous")
+      .attr("active", true);
+
+    const dotAsteroids = g.selectAll(".dotAsteroids")
+      .data(asteroidData)
+      .enter().append("circle")
+      .attr("class", "dotAsteroids")
+      .attr("cx", d => x(d.date))
+      .attr("cy", d => y(d.asteroidCount))
+      .attr("r", 5)
+      .attr("fill", "rgba(75, 192, 192, 1)")
+      .attr("active", true);
+
+    const dotPotentiallyHazardous = g.selectAll(".dotHazardous")
+      .data(asteroidData)
+      .enter().append("circle")
+      .attr("class", "dotHazardous")
+      .attr("cx", d => x(d.date))
+      .attr("cy", d => y(d.potentiallyHazardousCount))
+      .attr("r", 5)
+      .attr("fill", "rgba(255, 99, 132, 1)")
+      .attr("active", true);
+
+    // Add tooltip
+    const tooltip = g.append("g")
+      .attr("class", "tooltip")
+      .style("display", "none");
+
+    tooltip.append("rect")
+      .attr("width", 100)
+      .attr("height", 40)
+      .attr("fill", "rgba(255, 255, 255, 0.8)")
+      .attr("rx", 5)
+      .attr("ry", 5)
+      .style("pointer-events", "none");
+
+    const tooltipText = tooltip.append("text")
+      .attr("x", 5)
+      .attr("y", 20);
+
+    dotAsteroids.on("mouseover", (event, d) => {
+      tooltipText.text(`Asteroids: ${d.asteroidCount}`);
+      tooltip.attr("transform", `translate(${x(d.date) - 50},${y(d.asteroidCount) - 50})`);
+      tooltip.style("display", "block");
     });
+
+    dotPotentiallyHazardous.on("mouseover", (event, d) => {
+      tooltipText.text(`Dangerous Asteroids: ${d.potentiallyHazardousCount}`);
+      tooltip.attr("transform", `translate(${x(d.date) - 50},${y(d.potentiallyHazardousCount) - 50})`);
+      tooltip.style("display", "block");
+    });
+
+    dotAsteroids.on("mouseout", () => {
+      tooltip.style("display", "none");
+    });
+
+    dotPotentiallyHazardous.on("mouseout", () => {
+      tooltip.style("display", "none");
+    });
+
+    g.append("g")
+      .call(d3.axisBottom(x))
+      .attr("transform", `translate(0,${height})`)
+      .selectAll("text")
+      .style("text-anchor", "middle")
+      .attr("dy", "0.7em");
+
+    g.append("g")
+      .attr("class", "y-axis")
+      .call(d3.axisLeft(y))
+      .selectAll("text")
+      .attr("dy", "-0.5em");
+
+    g.append("text")
+      .attr("x", width / 2)
+      .attr("y", height + margin.bottom - 10)
+      .attr("text-anchor", "middle")
+      .text("Dates");
+
+    g.append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("x", -height / 2)
+      .attr("y", -margin.left + 20)
+      .attr("dy", "0.7em")
+      .attr("text-anchor", "middle")
+      .text("Number of Asteroids");
+
+    // Create legends
+    const legendAsteroids = svg.append("g")
+      .attr("class", "legend")
+      .attr("transform", "translate(20,20)")
+      .style("cursor", "pointer")
+      .on("click", function () {
+        const isActive = lineAsteroidsPath.attr("active") === "true";
+        const newDisplay = isActive ? "none" : "block";
+        lineAsteroidsPath.attr("active", !isActive);
+        dotAsteroids.attr("active", !isActive);
+        lineAsteroidsPath.style("display", newDisplay);
+        dotAsteroids.style("display", newDisplay);
+      });
+
+    legendAsteroids.append("rect")
+      .attr("x", 45)
+      .attr("y", 0)
+      .attr("width", 20)
+      .attr("height", 10)
+      .attr("fill", "rgba(75, 192, 192, 1)");
+
+    const legendPotentiallyHazardous = svg.append("g")
+      .attr("class", "legend")
+      .attr("transform", "translate(120,20)")
+      .style("cursor", "pointer")
+      .on("click", function () {
+        const isActive = linePotentiallyHazardousPath.attr("active") === "true";
+        const newDisplay = isActive ? "none" : "block";
+        linePotentiallyHazardousPath.attr("active", !isActive);
+        dotPotentiallyHazardous.attr("active", !isActive);
+        linePotentiallyHazardousPath.style("display", newDisplay);
+        dotPotentiallyHazardous.style("display", newDisplay);
+      });
+
+    legendPotentiallyHazardous.append("rect")
+      .attr("x", 45)
+      .attr("y", 0)
+      .attr("width", 20)
+      .attr("height", 10)
+      .attr("fill", "rgba(255, 99, 132, 1)");
+
+    legendAsteroids.append("text")
+      .attr("x", 70)
+      .attr("y", 8)
+      .text("Asteroids")
+      .style("font-size", "12px");
+
+    legendPotentiallyHazardous.append("text")
+      .attr("x", 70)
+      .attr("y", 8)
+      .text("Potentially Hazardous")
+      .style("font-size", "12px");
   }
 }
 
+// Call the function to create the interactive line graph
 displayLineChart();

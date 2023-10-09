@@ -3,84 +3,127 @@
  
     async function getNasaAsteroids(){
       const response = await fetch(asteroids_api_url);
-      const data = await response.json(); //convert response to json
+      const data = await response.json(); 
     //  console.log(data.near_earth_objects);
 
-      // Loop through each date and its array of asteroids
     for (const date in data.near_earth_objects) {      
       //console.log(`Date: ${date}`);
       const asteroids = data.near_earth_objects[date];
       const asteroidCount = asteroids.length;
-
-   //   console.log(`Number of Asteroids on ${date}: ${asteroidCount}`); //this will display the number of asteroids available on a certain day
+   //   console.log(`Number of Asteroids on ${date}: ${asteroidCount}`);
     }
-     // array of date keys
+
      const dates = Object.keys(data.near_earth_objects);
-     dates.sort(); //sorting out the dates
-      // array to store the number of asteroids for each date
+     dates.sort(); 
     const asteroidCounts = dates.map(date => data.near_earth_objects[date].length);
    // console.log( dates);
-   // console.log( asteroidCounts);
-    //Drawing my Bar Graph
-    const ctx = document.getElementById('canvas');
-    new Chart(ctx, {
-      type: 'bar',
-      data: {
-        labels: dates,
-        datasets: [{
-          label: 'Recent Asteroids to Approach Earth',
-          data: asteroidCounts,
-          backgroundColor: [
-            'rgba(255, 99, 132, 0.2',
-            'rgba(54, 162, 235, 0.2',
-            'rgba(255, 206, 86, 0.2)',
-            'rgba(75, 192, 192, 0.2',
-            'rgba(153, 102, 255, 0.2)',
-            'rgba(255, 159, 64, 0.2)'
-          ],
-          borderColor:[
-            'rgba(255, 99, 132, 1',
-            'rgba(54, 162, 235, 1',
-            'rgba(255, 206, 86, 1)',
-            'rgba(75, 192, 192, 1',
-            'rgba(153, 102, 255, 1)',
-            'rgba(255, 159, 64, 1)'
-          ],
-          borderWidth: 1
-        }]
-      },
-      options: {
-        plugins: {
-          title: {
-            display: true,
-            text: 'Number of Asteroids Approaching Earth on Specific Dates', // Add a title to the chart
-          },
-        },
-        scales: {
-          x: {
-            title: {
-              display: true,
-              text: 'Dates', // Label for the x-axis
-            },
-            ticks: {
-              fontSize: 14, // Increase the font size of the x-axis labels
-            },
-          },
-          y: {
-            title: {
-              display: true,
-              text: 'Number of Asteroids', // Label for the y-axis
-            },
-            ticks: {
-              fontSize: 14, // Increase the font size of the y-axis labels
-            },
-            beginAtZero: true,
-            },
-        }
-      }
-    });
+
+
+     const margin = { top: 30, right: 30, bottom: 50, left: 60 };
+     const width = 800 - margin.left - margin.right;
+     const height = 400 - margin.top - margin.bottom;
  
-}
+     // this will create a graph and make it also responsive
+     const svg = d3.select("#canvas")
+       .append("svg")
+       .attr("preserveAspectRatio", "xMinYMin meet")
+       .attr("viewBox", `0 0 ${width + margin.left + margin.right} ${height + margin.top + margin.bottom}`)
+       .classed("svg-content-responsive", true); 
+
+   const g = svg.append("g")
+     .attr("transform", `translate(${margin.left},${margin.top})`);
+
+   const x = d3.scaleBand()
+     .range([0, width])
+     .domain(dates)
+     .padding(0.1);
+
+   const y = d3.scaleLinear()
+     .range([height, 0])
+     .domain([0, d3.max(asteroidCounts)]);
+
+   g.append("g")
+     .attr("transform", `translate(0,${height})`)
+     .call(d3.axisBottom(x))
+     .selectAll("text")
+     .style("text-anchor", "middle")
+     .attr("dy", "0.7em");
+
+   g.append("g")
+     .call(d3.axisLeft(y))
+     .selectAll("text")
+     .attr("dy", "-0.5em");
+
+   const bars = g.selectAll(".bar")
+     .data(asteroidCounts)
+     .enter().append("rect")
+     .attr("class", "bar")
+     .attr("x", (d, i) => x(dates[i]))
+     .attr("y", d => y(d))
+     .attr("width", x.bandwidth())
+     .attr("height", d => height - y(d))
+     .attr("fill", (d, i) => {
+       const colors = [
+         'rgba(225, 99, 110, 0.3)',
+         'rgba(54, 162, 235, 0.3)',
+         'rgba(255, 206, 86, 0.3)',
+         'rgba(75, 192, 192, 0.3)',
+         'rgba(153, 102, 255, 0.3)',
+         'rgba(255, 159, 64, 0.3)',
+         'rgba(220, 99, 170, 0.3)',
+         'rgba(54, 162, 180, 0.3)'
+       ];
+       return colors[i];
+     })
+     .datum((d, i) => ({ date: dates[i], asteroidCount: d }));
+//mouseover
+   bars
+     .on("mouseover", function (event, d) {
+       d3.select(this).classed("hovered", true);
+//tooltip
+       const date = d.date;
+       const asteroidCount = d.asteroidCount;
+       const tooltipText = `Date: ${date}\nAsteroids Count: ${asteroidCount}`;
+
+
+       const tooltip = svg.append("text")
+         .attr("class", "tooltip")
+         .attr("x", width / 3.7)
+         .attr("y", margin.top + 15) 
+         .attr("text-anchor", "middle")
+         .text(tooltipText)
+         .style("font-weight", "bold")
+         .style("font-size", "14px");
+     })
+     .on("mouseout", function () {
+       d3.select(this).classed("hovered", false);
+
+       svg.selectAll(".tooltip").remove();
+     });
+
+   g.append("text")
+     .attr("x", width / 2)
+     .attr("y", -margin.top + 10) 
+     .attr("text-anchor", "middle")
+     .text("Number of Asteroids to Approach Earth on Specific Dates")
+     .style("font-weight", "bold")
+     .style("font-size", "16px");
+
+   g.append("text")
+     .attr("x", width / 2)
+     .attr("y", height + margin.bottom - 10)
+     .attr("text-anchor", "middle")
+     .text("Dates");
+
+   g.append("text")
+     .attr("transform", "rotate(-90)")
+     .attr("x", -height / 2)
+     .attr("y", -margin.left + 20)
+     .attr("dy", "0.7em")
+     .attr("text-anchor", "middle")
+     .text("Number of Asteroids");
+ }
+ getNasaAsteroids();
 
 
 async function getAsteroids() {
@@ -164,6 +207,4 @@ async function displayLineChart() {
   }
 }
 
-// display the line and bar graph here......don forget
-getNasaAsteroids();
 displayLineChart();

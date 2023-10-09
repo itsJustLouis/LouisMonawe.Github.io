@@ -23,7 +23,7 @@
      const width = 800 - margin.left - margin.right;
      const height = 400 - margin.top - margin.bottom;
  
-     // this will create a graph and make it also responsive
+// this will create a graph and make it also responsive
      const svg = d3.select("#canvas")
        .append("svg")
        .attr("preserveAspectRatio", "xMinYMin meet")
@@ -137,16 +137,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
  async function getAsteroids() {
   try {
     const response = await fetch(asteroids_api_url);
@@ -246,7 +236,7 @@ async function displayLineChart() {
       .attr("fill", "rgba(255, 99, 132, 1)")
       .attr("active", true);
 
-    // Add tooltip
+    //tooltip
     const tooltip = g.append("g")
       .attr("class", "tooltip")
       .style("display", "none");
@@ -310,7 +300,7 @@ async function displayLineChart() {
       .attr("text-anchor", "middle")
       .text("Number of Asteroids");
 
-    // Create legends
+    //legends
     const legendAsteroids = svg.append("g")
       .attr("class", "legend")
       .attr("transform", "translate(20,20)")
@@ -364,6 +354,4 @@ async function displayLineChart() {
       .style("font-size", "12px");
   }
 }
-
-// Call the function to create the interactive line graph
 displayLineChart();

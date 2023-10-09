@@ -52,21 +52,18 @@ h4 .hea {
     color: #333;
   }
   
-  /* Apply styles to unordered lists */
   ul.liss {
     list-style-type: disc;
     padding-left: 20px;
     font-size: 14px;
   }
   
-  /* Apply styles to list items */
   ul.liss li {
     margin-bottom: 10px;
     color: #666;
     line-height: 20px;
   }
   
-  /* Style the section with a border and padding */
   section.summar {
     border: 1px solid #ccc;
     padding: 20px;

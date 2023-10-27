@@ -1,6 +1,6 @@
 //Assignment Starts here
     const asteroids_api_url = 'https://api.nasa.gov/neo/rest/v1/feed?start_date=2023-08-25&end_date=2023-09-01&api_key=dhPb2jn8OnyMTgJTHGnxhYWq5oB9aCgwLu1GeGs5'; //Define API
- 
+
     async function getNasaAsteroids(){
       const response = await fetch(asteroids_api_url);
       const data = await response.json(); 

@@ -685,7 +685,7 @@ span{
 }
 .cont{
     flex-grow: 1;
-    flex-basis: 200;
+    flex-basis: 200px;
     height: 3%;
     width: 5%;
 }

@@ -8,7 +8,7 @@ body{
     font-family: 'Open Sans', sans-serif;
     width: 90%;
     margin: auto;
-    height: 100vh;
+    height: 105vh;
 }
 .active{
     background:rgba(163, 162, 162, 0.62) ;
@@ -19,6 +19,7 @@ body{
     width: 100%;
     min-height: 100vh;
     background-color: #f3f5f8;
+    
 }
 
 /*For Visuals Page*/
@@ -227,17 +228,7 @@ b{
     font-size: 70px;
     color: palevioletred;
 }
-/*
-.nav{
-    position: sticky;
-    top: 0;
-}
-.nav.sticking{
-    background: rgba(182, 182, 180, 0.6); 
-    backdrop-filter: blur(4px);
-    height: 80px;
-    width: 100%;
-}*/
+
 .navItems{
     display: flex;
 }
@@ -336,30 +327,18 @@ span{
     padding: 0;
 }
 .container-1{
-    display: grid;
-    grid-gap: 30px;
-    grid-template-areas: 
-    'p-1 break'
-    'p-1 break'
-    'p-1 break'
-    'p-1 break'
-    'p-1 break'
-    'p-1 break'
-    'p-1 break'
-    'p-1 break'
-    'p-1 break';
-        line-height: 30px;
-    
+    display: block;
+    line-height: 2rem;
 }
+
 .container-2{
     margin-bottom: 5%;
     margin-top: 1%;
 }
 .break{
-    grid-area: break;
-    border-color: black;
-    height: 1120px;
+    display: none;
 }
+
 .p-1 h4{ 
     text-transform: uppercase;
     font-size: 20px;
@@ -372,6 +351,8 @@ span{
 .space{
     padding-top: 7px;
     font-size: 18px;
+    padding-bottom: 10px;
+
 }
 .mid{
     color: black;
@@ -389,6 +370,15 @@ span{
         font-size: 80px;
         font-weight: 200;
     }
+    .container-1 {
+        display:block;
+    }
+    .break {
+        display: none;
+    }
+    .space{
+        padding-bottom: 10px;
+    }  
 }
 @media (max-width: 1150px){
     h1{
@@ -399,8 +389,11 @@ span{
         font-size: 60px;
         font-weight: 100;
     }
-    .break{
-        height: 1320px;
+    .container-1 {
+        display:block;
+    }
+    .break {
+        display: none;
     }
     .logo{
         display: flex;
@@ -416,12 +409,21 @@ span{
         color: #3d535f;
         margin: 20px 10px;
     }
+    .space{
+        padding-bottom: 10px;
+    }  
     
 }
 @media (max-width: 1000px){
-    .break{
-        height: 1700px;
+    .container-1 {
+        display:block;
     }
+    .break {
+        display: none;
+    }
+    .space{
+        padding-bottom: 10px;
+    }  
 }
 @media (max-width: 900px){
     .container-1 {
@@ -930,4 +932,8 @@ span{
   }
 
 
-  
+  .artworks{
+    height: 60%;
+    width: 70%;
+    margin-left: 5%;
+  }

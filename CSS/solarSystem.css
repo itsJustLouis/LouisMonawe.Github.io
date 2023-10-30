@@ -15,7 +15,7 @@ body {
    
 }
 
-/* Apply NASA theme styles to input fields */
+/* Appling th3 NASA theme styles to input fields */
 input[type="date"] {
     padding: 8px;
     font-size: 16px;
@@ -69,4 +69,24 @@ body {
     color: #fff;
     padding: 8px;
     border-radius: 4px;
+}
+.navArt {
+    display: flex;
+    justify-content: flex-start;
+    align-items:center;
+    height: 30px; 
+}
+
+.logo {
+    margin: 0 20px; 
+    font-family: 'Arial', sans-serif; 
+    font-size: 1.8rem; 
+    font-weight: 800;
+    color: #007bff;
+    transition: transform 0.3s, color 0.3s; 
+}
+
+.logo:hover {
+    transform: scale(1.2); 
+    color: #ff7f00;
 }

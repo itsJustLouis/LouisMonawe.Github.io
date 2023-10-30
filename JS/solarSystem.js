@@ -1,4 +1,3 @@
-// Define API parameters
 document.getElementById('fetchData').addEventListener('click', () => {
     const startDate = document.getElementById('startDate').value;
     const endDate = document.getElementById('endDate').value;
@@ -30,13 +29,11 @@ function createVisualization(neoData) {
         .attr("height", "100%");
 
     const earthRadius = 80;
-    const zoomedEarthRadius = 120; // Define a larger radius for zooming
+    const zoomedEarthRadius = 120;
     const earthX = window.innerWidth / 2.28;
     const earthY = window.innerHeight / 3.2;
 
     const scaleFactor = 0.00005;
-
-    // Add the Earth circle for zooming
     const earthCircle = svg.append("circle")
         .attr("cx", earthX)
         .attr("cy", earthY)
@@ -62,20 +59,18 @@ function createVisualization(neoData) {
                 .style("fill", neoColor);
 
             neoElement.on('mouseover', () => {
-                // Zoom in effect on hover
-                neoElement.transition().attr("r", 14); // Adjust the size as desired
 
-                // Show tooltip
+                neoElement.transition().attr("r", 14);
                 tooltip.style('display', 'block');
                 const name = neo.name;
                 const distance = neo.close_approach_data[0].miss_distance.kilometers;
                 asteroidName.text(`Name: ${name}`);
                 asteroidDistance.text(`Distance from Earth: ${distance} km`);
             }).on('mouseout', () => {
-                // Zoom out effect on mouseout
+                
                 neoElement.transition().attr("r", 6.5);
 
-                // Hide tooltip
+
                 tooltip.style('display', 'none');
             });
 
@@ -87,7 +82,6 @@ function createVisualization(neoData) {
         });
     });
 
-    // Add mouseover event to show tooltip for Earth
     earthCircle.on('mouseover', () => {
         earthCircle.transition().attr("r", zoomedEarthRadius);
         tooltip.style('display', 'block');
@@ -98,7 +92,7 @@ function createVisualization(neoData) {
         tooltip.style('display', 'none');
     });
 
-    // Animate NEO orbits
+    
     const orbitRadius = 250;
     const orbitSpeed = 200000;
 
@@ -106,13 +100,9 @@ function createVisualization(neoData) {
         const angle = (index / neoElements.length) * 2 * Math.PI;
         animateOrbit(neoElement, earthX, earthY, orbitRadius, angle, orbitSpeed);
     });
-
-    // Display the number of hazardous asteroids
     console.log(`Number of Hazardous Asteroids: ${hazardousAsteroids}`);
 }
 
-
-// Function to animate NEO orbits
 function animateOrbit(neoElement, earthX, earthY, radius, initialAngle, speed) {
     const start = Date.now();
     function animate() {

@@ -59,7 +59,6 @@ function createVisualization(neoData) {
                 .style("fill", neoColor);
 
             neoElement.on('mouseover', () => {
-
                 neoElement.transition().attr("r", 14);
                 tooltip.style('display', 'block');
                 const name = neo.name;
@@ -67,10 +66,7 @@ function createVisualization(neoData) {
                 asteroidName.text(`Name: ${name}`);
                 asteroidDistance.text(`Distance from Earth: ${distance} km`);
             }).on('mouseout', () => {
-                
                 neoElement.transition().attr("r", 6.5);
-
-
                 tooltip.style('display', 'none');
             });
 
@@ -91,8 +87,6 @@ function createVisualization(neoData) {
         earthCircle.transition().attr("r", earthRadius);
         tooltip.style('display', 'none');
     });
-
-    
     const orbitRadius = 250;
     const orbitSpeed = 200000;
 
@@ -102,7 +96,6 @@ function createVisualization(neoData) {
     });
     console.log(`Number of Hazardous Asteroids: ${hazardousAsteroids}`);
 }
-
 function animateOrbit(neoElement, earthX, earthY, radius, initialAngle, speed) {
     const start = Date.now();
     function animate() {

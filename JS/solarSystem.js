@@ -1,6 +1,8 @@
 document.getElementById('fetchData').addEventListener('click', () => {
-    const startDate = document.getElementById('startDate').value;
-    const endDate = document.getElementById('endDate').value;
+    const startDate = '2023-08-25';
+    const endDate  = '2023-09-01';
+    //const startDate = document.getElementById('startDate').value;
+  //  const endDate = document.getElementById('endDate').value;
     fetchData(startDate, endDate);
 });
 

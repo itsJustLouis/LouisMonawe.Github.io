@@ -40,7 +40,7 @@ function createVisualization(neoData) {
         .attr("cx", earthX)
         .attr("cy", earthY)
         .attr("r", earthRadius)
-        .style("fill", "#001a33");
+        .style("fill", "#ff4da6");
 
     const neoKeys = Object.keys(neoData);
     let hazardousAsteroids = 0;

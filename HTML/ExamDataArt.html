@@ -1,12 +1,11 @@
 <!DOCTYPE html>
-<!-- Coding by Louis Monawe from Sireque Studios**Currently a student at Wits University-->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Dat Visualization Design Section">
-    <meta name="author" content="Louis Monawe">
-    <title>Data Visualization: Design</title>
+    <title>Data Visualization: Exa, Data Artwork</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <link rel="stylesheet" href="../CSS/FinalExamDataArt.css">
     <!--CSS!-->
     <link rel="stylesheet" href="../font-awesome-4.7.0/css/font-awesome.min.css">
    <!--<link rel="stylesheet" href="style.css">-->
@@ -15,7 +14,7 @@
 <body>
     <main class="container-design">
         <nav class="nav">
-            <header class="logo">Design<b>.</b></header>
+            <header class="logo">DATA ART<b>.</b></header>
             <a href="#" class="toggle-button">
                 <span class="bar"></span>
                 <span class="bar"></span>
@@ -23,10 +22,9 @@
             </a>
             <ul class="navItems">
                 <li><a href="../index.html">home</a></li>
-                <li><a href="blogs.html">blogs</a></li>
-                <li><a href="visuals.html">visuals</a></li>
-                <li><a href="design.html" class=" active">design</a></li>
-                <li><a href="DataDrivenArtwork.html">Art</a></li>
+                <li><a href="DataDrivenArtwork.html">back</a></li>
+                <li><a href="dataArt.html">data art 1</a></li>
+                <li><a href="ExamDataArt.html" class="active">exam data art</a></li>
             </ul>
             <header class="links">
                 <a href="https://www.linkedin.com/in/louis-monawe-aab967251/" alt="linkedin Icon" title="LinkedIn Icon - Connect on LinkedIn"><i class="fa fa-linkedin"></i></a>
@@ -35,22 +33,25 @@
             </header>
         </nav>
         
-        <aside class="containI">            
-            <img src="../Images/1.png" alt="old wireframe pictures" class="cont" >
-            <img src="../Images/3.png" alt="old wireframe pictures" class="cont" >
-            <img src="../Images/5.png" alt="old wireframe pictures" class="cont" >  
-            <img src="../Images/6.png" alt="old wireframe pictures" class="cont" >
-        </aside>
+    
 
-        <aside class="containI">
-        <img src="../Images/4.png" alt="old wireframe pictures" class="cont">
-        <img src="../Images/2.png" alt="old wireframe pictures" class="cont">
-        <img src="../Images/visualsWireframe.png" alt="wireframe image of Visuals page" class="cont">
-        </aside>
+    <svg id="visualization"></svg>
+  <div class="tooltip" id="tooltip"></div>
 
+  <section class="summar">
+    <h4 class="hea">Intention:</h4>
+        <ul class="liss"><li>This data art visualizes information about asteroids fetched from the NASA API ranging between specific dates (August 25th, 2023 to September 1st, 2023).</li>
+            <li>The intention is to screate an interactive and visually appealing representation of Asteroid Data, using D3.js.</li>
+            <li>The Data Driven Artwork conveys information about asteroids near earth and shows their speeds in animation and their sizes over a given period of time.</li>
+            <li>It shows trends and asteroids attributes over time, allowing for users to explore its speeds and sizes, as users can analyze how each asteroid speed and size change and differ over time.</li>
+            <li>The animated transitions demonstrates the movements of the asteroids in space, however within the visualization.</li>
+        </ul>
+            
+        <h4 class="hea">Style Guide</h4>
+            <ul class="liss"><li>Color: Each of the asteroids are blue, however when you hover over them they turn Orange.</li>
+            </ul>
+        </section>
 
-
-</main>
 
     <footer class="footer">
         <section class="block">
@@ -90,12 +91,9 @@
             </section>
         </section>
     </footer>
+</main>
 
-           <!-- <button id="back-to-top-btn"><img src="back.png" alt="back to top Icon"></button>-->
-           <button id="back-to-top-btn"><img src="../Images/back.png" alt="back to top Icon"></button>
-        <!--JSv-->
-        <script src="/JS/blogs.js"></script>
-        <script src="/JS/scroll.js"></script>
-        <script src="/JS/script.js"></script>
+<script src="../JS/examArt.js"></script>
+
     </body>
     </html>

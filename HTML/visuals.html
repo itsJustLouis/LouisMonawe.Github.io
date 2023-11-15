@@ -15,13 +15,14 @@
 
 <script src="../JS/d3.min.js"></script>
    <script src="https://d3js.org/d3.v7.min.js"></script>
-  
+   <script src="https://d3js.org/d3.v6.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
    
    <script src="https://d3js.org/d3.v5.min.js"></script>
    <script src="https://d3js.org/d3.v6.min.js"></script>
    <script src="https://d3js.org/d3.v7.min.js"></script>
    <script src="../JS/visuals.js"></script>
+   <script src="../JS/static.js"></script>
    <link rel="stylesheet" href="../CSS/blogsStyle.css">
 </head>
 <body>
@@ -37,8 +38,8 @@
                 <li><a href="../index.html">home</a></li>
                 <li><a href="blogs.html">blogs</a></li>
                 <li><a href="visuals.html"  class=" active">visuals</a></li>
-                <li><a href="design.html">design</a></li>
-                <li><a href="dataArt.html">Art</a></li>
+                <li><a href="designSection.html">design</a></li>
+                <li><a href="DataDrivenArtwork.html">Art</a></li>
             </ul>
             <header class="links">
                 <a href="https://www.linkedin.com/in/louis-monawe-aab967251/" alt="linkedin Icon" title="LinkedIn Icon - Connect on LinkedIn"><i class="fa fa-linkedin"></i></a>
@@ -46,7 +47,7 @@
                 <a href="https://www.facebook.com/louiskatagwe.monawe/" alt="facebook Icon" title="facebook Icon - Connect on facebook">  <i class="fa fa-facebook"></i></a>
             </header>
         </nav>
-
+        
     <header>
         <hr class="hr1">
         <h1><span>VISUALIZATION </span></h1>
@@ -57,12 +58,21 @@
     </header>
 
     <main class="visuals"> 
+        
+  <div id="staticBarGraph" class="graph-container">
+    <svg id="static"></svg>
+  </div>
+        
+        <h4 class="hea">Purpose of Bar Graph:</h4>
+            <ul class="liss"><li>The Static Bar Graph above, uses the NASA API data to showcase the number of asteroids closest to Earth within specific dates from August 25th, 2023 to September 1st, 2023. Each Bar in the graph represents the number of asteroids that are expected to pass close to earth on a specific date. The Graph shows the potential impacts, and raises awareness of the regularity about the asteroids that pass earth on the regular.</li>
+            </ul>
 
+            <section class="summar">
         <h2 class="t1">Bar Graph</h2>
         <svg id="svg"></svg>
         <div id="canvas" alt="here lies a bar graph">
         </div><svg id="svg">
-            <section class="summar">
+            
             <h4 class="hea">Purpose of Bar Graph:</h4>
                 <ul class="liss"><li>The bar graph displays the number of asteroids approaching Earth on specific dates within a given time range. It provides a visual representation of how the asteroid count varies across different dates.</li></ul>
                 
@@ -100,8 +110,11 @@
                     <li>Legends: Legends include colored rectangles that match the line colors for easy identification.</li>
                     <li>Font Size: Font size for legends is set to 12px, and for tooltips is set to 10px ensuring readability.</li>
                 </ul>  
-            </section>          
+                     
         </svg>
+    </section> 
+        
+
 
     </main>
 
@@ -125,13 +138,13 @@
                     <section class="footer-col">
                         <h4>Design Choices</h4>
                         <ul class="footr">
-                            <li><a href="design.html">design tab</a></li>
+                            <li><a href="designSection.html">design</a></li>
                         </ul>
                     </section>
                     <section class="footer-col">
                         <h4>Artwork</h4>
                         <ul class="footr">
-                            <li><a href="dataArt.html">Artwork tab</a></li>
+                            <li><a href="DataDrivenArtwork.html">Artwork tab</a></li>
                         </ul>
                     </section>
                     <section class="footer-col">
